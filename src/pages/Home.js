@@ -48,6 +48,7 @@ const Home = () => {
                     onChange={(e) => setKeyB(parseInt(e.target.value))}
                 />
             </label>
+            <h4>Plaintext: </h4>
             <textarea
                 placeholder="Enter text..."
                 value={inputText}
@@ -56,13 +57,13 @@ const Home = () => {
             <button onClick={handleEncrypt}>Encrypt</button>
             <button onClick={handleDecrypt}>Decrypt</button>
             <div className="output">
+                <strong>Encrypted Text:</strong>
                 <div className="output-item">
-                    <strong>Encrypted Text:</strong>
                     <textarea value={outputEncrypt} readOnly />
                     {outputEncrypt.startsWith('Error') && <div className="error">{outputEncrypt}</div>}
                 </div>
+                <strong>Decrypted Text:</strong>
                 <div className="output-item">
-                    <strong>Decrypted Text:</strong>
                     <textarea value={outputDecrypt} readOnly />
                     {outputDecrypt.startsWith('Error') && <div className="error">{outputDecrypt}</div>}
                 </div>
