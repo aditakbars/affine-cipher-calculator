@@ -1,5 +1,5 @@
 {
-  "name": "affine-ciph er-calculator",
+  "name": "affine-cipher-calculator",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
