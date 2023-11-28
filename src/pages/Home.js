@@ -4,27 +4,28 @@ import '../App.css';
 
 const Home = () => {
     const [inputText, setInputText] = useState('');
-    const [outputText, setOutputText] = useState('');
+    const [outputEncrypt, setOutputEncrypt] = useState('');
+    const [outputDecrypt, setOutputDecrypt] = useState('');
     const [keyA, setKeyA] = useState(1);
-    const [keyB, setKeyB] = useState(0);
+    const [keyB, setKeyB] = useState(1);
 
     const handleEncrypt = () => {
         try {
             const encryptedText = encrypt(inputText, keyA, keyB);
-            setOutputText(encryptedText);
+            setOutputEncrypt(encryptedText);
         } catch (error) {
             console.error(error.message);
-            setOutputText('Error: Invalid input or key.');
+            setOutputEncrypt('Error: Invalid input or key.');
         }
     };
 
     const handleDecrypt = () => {
         try {
-            const decryptedText = decrypt(outputText, keyA, keyB);
-            setOutputText(decryptedText);
+            const decryptedText = decrypt(inputText, keyA, keyB);
+            setOutputDecrypt(decryptedText);
         } catch (error) {
             console.error(error.message);
-            setOutputText('Error: Invalid input or key.');
+            setOutputDecrypt('Error: Invalid input or key.');
         }
     };
 
@@ -34,17 +35,17 @@ const Home = () => {
             <label>
                 Key (a):
                 <input
-                type="number"
-                value={keyA}
-                onChange={(e) => setKeyA(parseInt(e.target.value))}
+                    type="number"
+                    value={keyA}
+                    onChange={(e) => setKeyA(parseInt(e.target.value))}
                 />
             </label>
             <label>
                 Key (b):
                 <input
-                type="number"
-                value={keyB}
-                onChange={(e) => setKeyB(parseInt(e.target.value))}
+                    type="number"
+                    value={keyB}
+                    onChange={(e) => setKeyB(parseInt(e.target.value))}
                 />
             </label>
             <textarea
@@ -55,12 +56,20 @@ const Home = () => {
             <button onClick={handleEncrypt}>Encrypt</button>
             <button onClick={handleDecrypt}>Decrypt</button>
             <div className="output">
-                <strong>Output:</strong>
-                <div>{outputText}</div>
-                {outputText.startsWith('Error') && <div className="error">{outputText}</div>}
+                <div className="output-item">
+                    <strong>Encrypted Text:</strong>
+                    <textarea value={outputEncrypt} readOnly />
+                    {outputEncrypt.startsWith('Error') && <div className="error">{outputEncrypt}</div>}
+                </div>
+                <div className="output-item">
+                    <strong>Decrypted Text:</strong>
+                    <textarea value={outputDecrypt} readOnly />
+                    {outputDecrypt.startsWith('Error') && <div className="error">{outputDecrypt}</div>}
+                </div>
             </div>
         </div>
     );
+    
 };
 
 export default Home;
