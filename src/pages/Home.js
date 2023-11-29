@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { encrypt, decrypt } from '../func/crypto'; // Pastikan path-nya sesuai dengan struktur proyekmu
+import { encrypt, decrypt } from '../func/crypto'; 
+import { Link } from 'react-router-dom';
 import '../App.css';
 
 const Home = () => {
@@ -30,6 +31,7 @@ const Home = () => {
     };
 
     return (
+        <>
         <div className="container">
             <h1>Affine Cipher Calculator</h1>
             <label>
@@ -69,6 +71,10 @@ const Home = () => {
                 </div>
             </div>
         </div>
+        <footer>
+            <Link to="/about">About This App</Link>
+        </footer>
+        </>
     );
     
 };
