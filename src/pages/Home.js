@@ -72,7 +72,9 @@ const Home = () => {
             </div>
         </div>
         <footer>
-            <Link to="/about">About This App</Link>
+            <Link to="/about">
+                <h4 className='link'>About This App</h4>
+            </Link>
         </footer>
         </>
     );

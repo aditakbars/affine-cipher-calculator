@@ -105,7 +105,7 @@ a {
 footer {
   text-align: center;
   margin-top: 20px;
-  margin-bottom: 0.5em;
+  margin-bottom: 5em;
   transition: 1.3s;
 }
 
@@ -118,5 +118,37 @@ footer a {
 
 footer a:hover {
   transform: scale(1.2,1.2);
-  text-decoration: underline;
+  text-decoration:wavy;
+}
+
+/* Media Queries untuk Responsivitas */
+/* Media Queries untuk Responsivitas */
+@media screen and (max-width: 600px) {
+  .container {
+    max-width: 100%; /* Lebar maksimum 100% pada layar kecil */
+    margin: 10px;
+    padding: 10px;
+  }
+
+  .img-container {
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  label, input, textarea {
+    width: 100%;
+  }
+
+  button {
+    margin-left: 0;
+    margin-top: 0.3em;
+    width: 100%;
+  }
+
+  footer {
+    margin-bottom: 1em; /* Sesuaikan margin bottom agar tidak terlalu panjang pada layar kecil */
+  }
 }
